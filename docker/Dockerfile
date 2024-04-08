@@ -15,9 +15,11 @@ RUN apt-get update && \
 
 WORKDIR /workspace
 
-RUN git clone --depth=1 https://github.com/OpenAccess-AI-Collective/axolotl.git
+#RUN git clone --depth=1 https://github.com/OpenAccess-AI-Collective/axolotl.git
+RUN git clone --depth=1 https://github.com/peterdonnelly1/axolotl axo
 
-WORKDIR /workspace/axolotl
+#WORKDIR /workspace/axolotl
+WORKDIR /workspace/axo
 
 # If AXOLOTL_EXTRAS is set, append it in brackets
 RUN pip install causal_conv1d

@@ -1,4 +1,5 @@
 --extra-index-url https://huggingface.github.io/autogptq-index/whl/cu118/
+xformers==0.0.21
 packaging==23.2
 peft==0.10.0
 transformers @ git+https://github.com/huggingface/transformers.git@43d17c18360ac9c3d3491389328e2fe55fe8f9ce
@@ -16,7 +17,6 @@ flash-attn==2.5.5
 sentencepiece
 wandb
 einops
-xformers==0.0.22
 optimum==1.16.2
 hf_transfer
 colorama
