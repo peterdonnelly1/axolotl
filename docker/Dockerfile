@@ -22,6 +22,10 @@ RUN git clone --depth=1 https://github.com/peterdonnelly1/axolotl axo
 WORKDIR /workspace/axo
 
 # If AXOLOTL_EXTRAS is set, append it in brackets
+
+RUN pip install xformers==0.0.21
+
+
 RUN pip install causal_conv1d
 RUN if [ "$AXOLOTL_EXTRAS" != "" ] ; then \
         pip install -e .[deepspeed,flash-attn,mamba-ssm,galore,$AXOLOTL_EXTRAS] $AXOLOTL_ARGS; \
