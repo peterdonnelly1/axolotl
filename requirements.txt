@@ -1,5 +1,5 @@
 --extra-index-url https://huggingface.github.io/autogptq-index/whl/cu118/
-xformers==0.0.21
+#xformers==0.0.21
 packaging==23.2
 peft==0.10.0
 transformers @ git+https://github.com/huggingface/transformers.git@43d17c18360ac9c3d3491389328e2fe55fe8f9ce
