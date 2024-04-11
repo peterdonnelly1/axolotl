@@ -1,12 +1,15 @@
-ARG BASE_TAG=main-base
+#ARG BASE_TAG=main-base
+ARG BASE_TAG=main-base-py3.11-cu121-2.2.1
 FROM winglian/axolotl-base:$BASE_TAG
 
 ARG TORCH_CUDA_ARCH_LIST="7.0 7.5 8.0 8.6+PTX"
 ARG AXOLOTL_EXTRAS=""
 ARG AXOLOTL_ARGS=""
-ARG CUDA="118"
+#ARG CUDA="118"
+ARG CUDA="121"
 ENV BNB_CUDA_VERSION=$CUDA
-ARG PYTORCH_VERSION="2.1.2"
+#ARG PYTORCH_VERSION="2.1.2"
+ARG PYTORCH_VERSION="2.2.1"
 
 ENV PYTORCH_VERSION=$PYTORCH_VERSION
 
@@ -25,7 +28,6 @@ WORKDIR /workspace/axo
 
 RUN pip install xformers==0.0.21
 
-
 RUN pip install causal_conv1d
 RUN if [ "$AXOLOTL_EXTRAS" != "" ] ; then \
         pip install -e .[deepspeed,flash-attn,mamba-ssm,galore,$AXOLOTL_EXTRAS] $AXOLOTL_ARGS; \
@@ -42,3 +44,5 @@ RUN git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*" && \
 
 # helper for huggingface-login cli
 RUN git config --global credential.helper store
+
+RUN apt install tree
